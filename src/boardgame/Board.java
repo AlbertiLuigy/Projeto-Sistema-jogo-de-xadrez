@@ -4,7 +4,7 @@ public class Board {
     
     private int rows;
     private int columns;
-    private Piece[][] pieces;
+    private Piece[][] pieces; //força a matriz de peças a ser do tipo Piece
 
     public Board(int rows, int columns) {
         this.rows = rows;
@@ -34,5 +34,10 @@ public class Board {
 
     public Piece piece (Position position){
         return pieces[position.getRow()][position.getColumn()];
+    }
+
+    public void placePiece(Piece piece, Position position){
+        pieces[position.getRow()][position.getColumn()] = piece; //força a peça a ser colocada na posição especificada
+        piece.position = position; //força a posição da peça a ser a posição especificada
     }
 }
